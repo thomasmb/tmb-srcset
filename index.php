@@ -62,8 +62,8 @@ if( !class_exists( 'SRCSET' ) ){
 
 			if( !$img_has_size ){			
 				require_once( ABSPATH . 'wp-admin/includes/image.php' );
-
-				$meta_data = wp_generate_attachment_metadata( $id, wp_upload_dir()[ 'basedir' ] . '/' . $img_meta[ 'file' ] );
+				$upload_dir = wp_upload_dir();
+				$meta_data = wp_generate_attachment_metadata( $id, $upload_dir[ 'basedir' ] . '/' . $img_meta[ 'file' ] );
 				wp_update_attachment_metadata( $id, $meta_data );
 			}
 
